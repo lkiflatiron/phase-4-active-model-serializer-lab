@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def index
-    tags = Tag.all
+    tags = Tag.all.order(:name)
     render json: tags
   end
 
